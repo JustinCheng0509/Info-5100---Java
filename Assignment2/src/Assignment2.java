@@ -136,6 +136,7 @@ public class Assignment2 {
      write your understanding here.
 
      Java doesn't pass method arguments by reference, it passes them by value;
+     so the swap method won't work as a method, but it could be used in the main.
     */
     public static void main(String[] args) {
         Employee a = new Employee("Jenny", 20, Gender.FEMALE, 2000);
