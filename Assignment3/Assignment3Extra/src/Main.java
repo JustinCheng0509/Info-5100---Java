@@ -1,5 +1,6 @@
 public class Main {
-/*
+//score 2/2 
+    /*
 Encapsulation
 Abstraction
 Reuse
