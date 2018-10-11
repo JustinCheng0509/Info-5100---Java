@@ -1,3 +1,4 @@
+// score 5/5
 import java.util.Arrays;
 public class Course {
     String name;
