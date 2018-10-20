@@ -1,38 +1,32 @@
 import java.util.*;
 public class Assignment5Extra {
-    public List<Integer>spriralOrder(int[][] matrix){
-        List<Integer> spiral = new ArrayList<Integer>();
-        if (matrix == null||matrix.length == 0 ||matrix[0].length == 0){
-            return spiral;
-        }
-        int m = matrix.length,  n = matrix[0].length;
-        while(m > 0 && n > 0) {
-            if (m == 1) {
-                for (int i = 1; i < n; i++) {
-                    spiral.add(matrix[m][i]);
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer>result = new ArrayList<Integer>();
+        if(matrix==null||matrix.length==0||matrix[0]==null){return result;}
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int tm = (int)((double)m/2+ 0.5);
+        int tn = (int)((double)n/2+ 0.5);
+        int starti,endi,startj,endj;
+        for(starti = 0,startj=0;starti<tm&&startj<tn;starti++,startj++){
+            endi = m-1-starti;
+            endj = n-1-startj;
+            int i ,j;
+            for(i = starti,j=startj;j<=endj;j++){
+                result.add(matrix[i][j]);
+            }
+            for(i = starti+1,j=endj;i<=endi;i++){
+                result.add(matrix[i][j]);
+            }
+            if(endi!=starti)
+                for(i = endi,j=endj-1;j>=startj;j--){
+                    result.add(matrix[i][j]);
                 }
-                break;
-            } else if (n == 1) {
-                for (int i = 1; i < m; i++) {
-                    spiral.add(matrix[i][n]);
+            if(endj!=startj)
+                for(i = endi-1,j=startj;i>=starti+1;i--){
+                    result.add(matrix[i][j]);
                 }
-                break;
-            }
-            for (int i = 0; i < n-1; i++){
-                spiral.add(matrix[m++][i]);
-            }
-            for (int i = 0; i < m-1; i++){
-                spiral.add(matrix[i][n++]);
-            }
         }
-
-
-        return spiral;
-
-    }
-
-    public static void main(String args[]) {
-
-
+        return result;
     }
 }
