@@ -1,3 +1,6 @@
+
+// Total: 10/10
+
 public class rotate {
     public int[][] rotate(int[][] matrix) {
         int lth = matrix.length;
