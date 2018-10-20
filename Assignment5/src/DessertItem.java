@@ -4,12 +4,12 @@ public abstract class DessertItem {
     public DessertItem(){
 
     }
-    public DessertItem(String name, int cost) {
+    public DessertItem(String name/*, int cost*/) {
         if (name.length()<= DessertShoppe.maxNameSize) {
             this.name = name;
         }else
             this.name = name.substring(0,DessertShoppe.maxNameSize);
-        this.cost = cost;
+        //this.cost = cost;
     }
 
     public final String getName(){

@@ -36,22 +36,30 @@ public class Checkout {
     }
     //@Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < (DessertShoppe.maxDisWidth-DessertShoppe.shopname.length())/2; i++){
-            sb.append(" ");
-        }
-        sb.append(DessertShoppe.shopname+"\n");
-        for (int i = 0; i < (DessertShoppe.maxDisWidth-DessertShoppe.shopname.length())/2; i++){
-            sb.append(" ");
-        }
-        for (int i = 0; i < DessertShoppe.shopname.length(); i++){
-            sb.append("-");
-        }
-        sb.append("\n");
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < (DessertShoppe.maxDisWidth- DessertShoppe.shopname.length())/2; i++)
+            stringBuilder.append(" ");
+        stringBuilder.append(DessertShoppe.shopname).append("\n");
+        for (int i = 0; i < (DessertShoppe.maxDisWidth - DessertShoppe.shopname.length())/2; i++)
+            stringBuilder.append(" ");
+        for (int i = 0; i < DessertShoppe.shopname.length(); i++)
+            stringBuilder.append("-");
+        stringBuilder.append("\n");
         for (DessertItem item: list) {
-            sb.append(item).append("\n");
+            stringBuilder.append(item).append("\n");
         }
-        return sb.toString();
+        stringBuilder.append("\n");
+        stringBuilder.append("Tax");
+        String tax = DessertShoppe.cents2dollarsAndCents(totalTax());
+        String total = DessertShoppe.cents2dollarsAndCents(totalCost()+totalTax());
+        for (int i = 0; i < DessertShoppe.maxDisWidth - tax.length() - 3; i++)
+            stringBuilder.append(" ");
+        stringBuilder.append(tax).append("\n").append("Total Cost");
+        for (int i = 0; i < DessertShoppe.maxDisWidth - total.length() - 10; i++)
+            stringBuilder.append(" ");
+        stringBuilder.append(total);
+        stringBuilder.append("\n\n");
+        return stringBuilder.toString();
     }
 }
 

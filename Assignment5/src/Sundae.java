@@ -3,7 +3,7 @@ public class Sundae extends IceCream{
     private int topCost;
 
     public Sundae(String name, int cost, String topping, int topCost){
-        this.name = topping +" Sundae with"+name;
+        this.name = topping +" Sundae with "+name;
         this.cost = cost + topCost;
     }
 

@@ -14,12 +14,10 @@ public class IceCream extends DessertItem {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(getName());
-        String price = String.valueOf(getCost()/100);
-        for (int i = 0; i < DessertShoppe.maxDisWidth-getName().length()-price.length(); i++){
-            sb.append(" ");
-        }
-        sb.append(price);
-        return sb.toString();
+        StringBuilder res = new StringBuilder(getName());
+        String price = DessertShoppe.cents2dollarsAndCents(getCost());
+        for (int i = 0; i < DessertShoppe.maxDisWidth-getName().length()-price.length(); i++)
+            res.append(" ");
+        return res.toString() + price;
     }
 }
