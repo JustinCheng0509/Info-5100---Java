@@ -15,11 +15,11 @@ public class Cookie extends DessertItem{
         return cost;
     }
     public String toString() {
-        StringBuilder res = new StringBuilder(count + " @ " + DessertShoppe.cents2dollarsAndCents(price) + " /dz."
+        StringBuilder sb = new StringBuilder(count + " @ " + DessertShoppe.cents2dollarsAndCents(price) + " /dz."
                 + "\n" + getName());
         String price = DessertShoppe.cents2dollarsAndCents(getCost());
         for (int i = 0; i < DessertShoppe.maxDisWidth-getName().length()-price.length(); i++)
-            res.append(" ");
-        return res.toString() + price;
+            sb.append(" ");
+        return sb.toString() + price;
     }
 }

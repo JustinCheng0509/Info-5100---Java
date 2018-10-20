@@ -16,11 +16,11 @@ public class Candy extends DessertItem {
 
     @Override
     public String toString() {
-        StringBuilder res = new StringBuilder(weight + " lbs. @ " + DessertShoppe.cents2dollarsAndCents(price) + " /lb."
+        StringBuilder sb = new StringBuilder(weight + " lbs. @ " + DessertShoppe.cents2dollarsAndCents(price) + " /lb."
                 + "\n" + getName());
         String price = DessertShoppe.cents2dollarsAndCents(getCost());
         for (int i = 0; i < DessertShoppe.maxDisWidth-getName().length()-price.length(); i++)
-            res.append(" ");
-        return res.toString() + price;
+            sb.append(" ");
+        return sb.toString() + price;
     }
 }

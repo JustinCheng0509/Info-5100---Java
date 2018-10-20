@@ -36,30 +36,41 @@ public class Checkout {
     }
     //@Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < (DessertShoppe.maxDisWidth- DessertShoppe.shopname.length())/2; i++)
-            stringBuilder.append(" ");
-        stringBuilder.append(DessertShoppe.shopname).append("\n");
+            sb.append(" ");
+        sb.append(DessertShoppe.shopname).append("\n");
         for (int i = 0; i < (DessertShoppe.maxDisWidth - DessertShoppe.shopname.length())/2; i++)
-            stringBuilder.append(" ");
+            sb.append(" ");
         for (int i = 0; i < DessertShoppe.shopname.length(); i++)
-            stringBuilder.append("-");
-        stringBuilder.append("\n");
+            sb.append("-");
+        sb.append("\n");
         for (DessertItem item: list) {
-            stringBuilder.append(item).append("\n");
+            //if (item.name.length()<=DessertShoppe.maxNameSize) {
+                sb.append(item).append("\n");
+            //}
+            /*else{
+
+                sb.append(item.name.substring(0,DessertShoppe.maxNameSize)).append("\n");
+                String price = DessertShoppe.cents2dollarsAndCents(item.cost);
+                StringBuilder spaces = new StringBuilder();
+                for (int i = 0; i < DessertShoppe.maxDisWidth-item.name.length()-price.length(); i++)
+                    spaces.append("  ");
+                sb.append(item.name.substring(DessertShoppe.maxNameSize)).append(spaces).append(DessertShoppe.cents2dollarsAndCents(item.cost)).append("\n");
+            }*/
         }
-        stringBuilder.append("\n");
-        stringBuilder.append("Tax");
+        sb.append("\n");
+        sb.append("Tax");
         String tax = DessertShoppe.cents2dollarsAndCents(totalTax());
         String total = DessertShoppe.cents2dollarsAndCents(totalCost()+totalTax());
         for (int i = 0; i < DessertShoppe.maxDisWidth - tax.length() - 3; i++)
-            stringBuilder.append(" ");
-        stringBuilder.append(tax).append("\n").append("Total Cost");
+            sb.append(" ");
+        sb.append(tax).append("\n").append("Total Cost");
         for (int i = 0; i < DessertShoppe.maxDisWidth - total.length() - 10; i++)
-            stringBuilder.append(" ");
-        stringBuilder.append(total);
-        stringBuilder.append("\n\n");
-        return stringBuilder.toString();
+            sb.append(" ");
+        sb.append(total);
+        sb.append("\n\n");
+        return sb.toString();
     }
 }
 
