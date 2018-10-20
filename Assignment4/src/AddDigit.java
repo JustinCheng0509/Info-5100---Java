@@ -1,4 +1,5 @@
 public class AddDigit {
+    // interesting
     public int addDigit(int n) {
         return 1 + (n - 1) % 9;
     }
