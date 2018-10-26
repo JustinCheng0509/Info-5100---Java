@@ -23,4 +23,15 @@ public class CheckingAccount extends Account {
             CurBalance -= Fee;
         }
     }
+
+    public static void main (String args[]){
+        CheckingAccount c1 = new CheckingAccount("Dave", "Franco", 50);
+        System.out.println(c1);
+        c1.DebitTransaction(0.71);
+        System.out.println(c1);
+        c1.CreditTransaction(41);
+        System.out.println(c1);
+        c1.CreditTransaction(101);
+        System.out.println(c1);
+    }
 }

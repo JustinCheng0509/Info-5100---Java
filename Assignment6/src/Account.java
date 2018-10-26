@@ -23,4 +23,15 @@ public class Account {
     public String toString() {
         return "Account name: "+FirstName+" "+LastName+", Account Type: "+ getAcctType()+", Balance: "+ String.format("$%.2f", CurBalance);
     }
+
+    public static void main (String args[]){
+        Account a1 = new Account("James","Franco",450);
+        System.out.println(a1);
+
+        a1.DebitTransaction(71.74);
+        System.out.println(a1);
+
+        a1.CreditTransaction(67.14);
+        System.out.println(a1);
+    }
 }
