@@ -14,9 +14,8 @@ public class merge {
             }
         });
 
-        List<Interval> res = new ArrayList<>(); // Result list.
-        Interval prev = intervals.get(0), cur; // Prev is always the one for the next interval to compare.
-
+        List<Interval> res = new ArrayList<>();
+        Interval prev = intervals.get(0), cur;
         for (int i = 1; i < intervals.size(); i++) {
             cur = intervals.get(i);
             if (prev.end >= cur.start) { // Overlapped case.
@@ -26,7 +25,7 @@ public class merge {
                 prev = cur;
             }
         }
-        res.add(prev); // The last one to add to the result list.
+        res.add(prev);
 
         return res;
     }
